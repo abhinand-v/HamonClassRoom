@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HamonClassRoom</string>
+
+    #inputTextHint
+    <string name="inputTextHint_username">Username</string>
+    <string name="inputTextHint_password">Password</string>
+
+    #buttonText
+    <string name="buttonText_signin">Sign In</string>
+    <string name="buttonText_signup">Sign Up</string>
 </resources>

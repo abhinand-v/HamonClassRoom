@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/studentFragment"
+        android:icon="@drawable/ic_school_black_24dp"
+        android:title="Students" />
+
+    <item
+        android:id="@+id/subjectFragment"
+        android:icon="@drawable/ic_local_library_black_24dp"
+        android:title="Subjects" />
+
+    <item
+        android:id="@+id/classroomFragment"
+        android:icon="@drawable/ic_view_comfy_black_24dp"
+        android:title="Classrooms" />
+
+</menu>

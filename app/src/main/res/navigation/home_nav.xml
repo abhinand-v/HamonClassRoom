@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/studentFragment">
+
+    <fragment
+        android:id="@+id/studentFragment"
+        android:name="tech.codewithabhi.hamonclassroom.ui.home.student.StudentFragment"
+        android:label="student_fragment"
+        tools:layout="@layout/student_fragment" />
+    <fragment
+        android:id="@+id/classroomFragment"
+        android:name="tech.codewithabhi.hamonclassroom.ui.home.classroom.ClassroomFragment"
+        android:label="classroom_fragment"
+        tools:layout="@layout/classroom_fragment" />
+    <fragment
+        android:id="@+id/subjectFragment"
+        android:name="tech.codewithabhi.hamonclassroom.ui.home.subject.SubjectFragment"
+        android:label="subject_fragment"
+        tools:layout="@layout/subject_fragment" />
+</navigation>
