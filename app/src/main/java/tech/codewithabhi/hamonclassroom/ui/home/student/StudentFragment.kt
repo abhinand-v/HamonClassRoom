@@ -46,6 +46,9 @@ class StudentFragment : Fragment(), KodeinAware, StudentFragmentListener {
                 initRecyclerView(it)
             }
         })
+        swipeRefresh_student_list.setOnRefreshListener {
+            viewModel.getStudentList()
+        }
     }
 
     private fun initRecyclerView(students: List<Student>) {
