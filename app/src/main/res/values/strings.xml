@@ -8,4 +8,9 @@
     #buttonText
     <string name="buttonText_signin">Sign In</string>
     <string name="buttonText_signup">Sign Up</string>
+
+    #text
+    <string name="text_id">ID:</string>
+    <string name="text_age">Age:</string>
+    <string name="text_address">Address:</string>
 </resources>

@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.student_fragment.*
@@ -16,6 +18,7 @@ import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 import tech.codewithabhi.hamonclassroom.R
 import tech.codewithabhi.hamonclassroom.data.network.models.Student
+import tech.codewithabhi.hamonclassroom.databinding.DialogLayoutStudentDetailsBinding
 
 class StudentFragment : Fragment(), KodeinAware, StudentFragmentListener {
 
@@ -59,12 +62,35 @@ class StudentFragment : Fragment(), KodeinAware, StudentFragmentListener {
 
         val mAdapter = GroupAdapter<ViewHolder>().apply {
             addAll(studentListItems)
+            setOnItemClickListener { item, _ ->
+                showDetailDialog(students[this.getAdapterPosition(item)])
+            }
         }
 
         recyclerView_studentList.apply {
             adapter = mAdapter
             setHasFixedSize(true)
         }
+    }
+
+    private fun showDetailDialog(student: Student) {
+
+        val viewBinding = DataBindingUtil.inflate<DialogLayoutStudentDetailsBinding>(
+            layoutInflater,
+            R.layout.dialog_layout_student_details,
+            null, false
+        )
+
+        viewBinding.student = student
+
+        val dialog = MaterialAlertDialogBuilder(appContext).apply {
+            setView(viewBinding.root)
+            setNegativeButton("close") { dialogInterface, _ ->
+                dialogInterface.dismiss()
+            }
+        }
+
+        dialog.show()
     }
 
     override fun startStopRefresh(state: Boolean) {

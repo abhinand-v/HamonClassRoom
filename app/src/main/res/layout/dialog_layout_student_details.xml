@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <data>
+
+        <variable
+            name="student"
+            type="tech.codewithabhi.hamonclassroom.data.network.models.Student" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardBackgroundColor="#00BCD4"
+            app:cardCornerRadius="255dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView_studentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{student.name}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:text="Laurie Thomas" />
+
+        <TextView
+            android:id="@+id/textView_studentMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{student.email}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView_studentName"
+            app:layout_constraintStart_toStartOf="@+id/textView_studentName"
+            app:layout_constraintTop_toBottomOf="@+id/textView_studentName"
+            tools:text="lauriethomas@example.com" />
+
+        <LinearLayout
+            android:id="@+id/box_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_round_hard_green"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView_studentMail"
+            app:layout_constraintStart_toStartOf="@+id/textView_studentMail"
+            app:layout_constraintTop_toBottomOf="@+id/textView_studentMail">
+
+            <TextView
+                android:id="@+id/text_user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_id" />
+
+            <TextView
+                android:id="@+id/textView_studentId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="@{`#`+student.id}"
+                tools:text="21" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/box_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_round_hard_gray"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/box_id">
+
+            <TextView
+                android:id="@+id/text_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_age" />
+
+            <TextView
+                android:id="@+id/textView_student_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{student.age}"
+                tools:text="21" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/box_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_round_hard_gray"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/box_age"
+            app:layout_constraintStart_toStartOf="@+id/box_age"
+            app:layout_constraintTop_toBottomOf="@+id/box_age">
+
+            <TextView
+                android:id="@+id/text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_address" />
+
+            <TextView
+                android:id="@+id/textView_studentAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Flat No. 100    Triveni Apartments    Pitam Pura    NEW DELHI 110034    [city/town/locality + postal code (equivalent of U.S. zip code)]    INDIA" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
