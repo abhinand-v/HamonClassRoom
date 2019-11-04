@@ -17,7 +17,7 @@ import org.kodein.di.generic.instance
 import tech.codewithabhi.hamonclassroom.R
 import tech.codewithabhi.hamonclassroom.data.network.models.Student
 
-class StudentFragment : Fragment(), KodeinAware {
+class StudentFragment : Fragment(), KodeinAware, StudentFragmentListener {
 
     override val kodein by kodein()
     private val factory by instance<StudentViewModelFactory>()
@@ -36,6 +36,7 @@ class StudentFragment : Fragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, factory).get(StudentViewModel::class.java)
+        viewModel.listener = this
     }
 
     override fun onResume() {
@@ -61,6 +62,10 @@ class StudentFragment : Fragment(), KodeinAware {
             adapter = mAdapter
             setHasFixedSize(true)
         }
+    }
+
+    override fun startStopRefresh(state: Boolean) {
+        swipeRefresh_student_list?.isRefreshing = state
     }
 
 }
