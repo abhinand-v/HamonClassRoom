@@ -13,4 +13,6 @@
     <string name="text_id">ID:</string>
     <string name="text_age">Age:</string>
     <string name="text_address">Address:</string>
+    <string name="text_taught_by">Taught by:</string>
+    <string name="text_credits">Credits:</string>
 </resources>

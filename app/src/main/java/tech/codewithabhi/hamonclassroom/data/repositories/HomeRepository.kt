@@ -10,4 +10,8 @@ class HomeRepository(
     suspend fun getStudentList() = apiRequest {
         api.getStudentsList()
     }
+
+    suspend fun getSubjectList() = apiRequest {
+        api.getSubjectList()
+    }
 }

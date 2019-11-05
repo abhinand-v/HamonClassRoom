@@ -12,6 +12,7 @@ import tech.codewithabhi.hamonclassroom.data.network.DataAPI
 import tech.codewithabhi.hamonclassroom.data.network.NetworkConnectionInterceptor
 import tech.codewithabhi.hamonclassroom.data.repositories.HomeRepository
 import tech.codewithabhi.hamonclassroom.ui.home.student.StudentViewModelFactory
+import tech.codewithabhi.hamonclassroom.ui.home.subject.SubjectViewModelFactory
 
 class HamonClassroom : Application(), KodeinAware {
 
@@ -25,6 +26,7 @@ class HamonClassroom : Application(), KodeinAware {
         bind() from singleton { HomeRepository(instance()) }
 
         bind() from provider { StudentViewModelFactory(instance()) }
+        bind() from provider { SubjectViewModelFactory(instance()) }
     }
 
 }

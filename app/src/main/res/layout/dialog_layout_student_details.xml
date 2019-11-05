@@ -15,15 +15,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:paddingTop="16dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:cardBackgroundColor="#00BCD4"
-            app:cardCornerRadius="255dp"
+            app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -33,7 +32,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
+                app:LoadUserImages="@{``+student.id}"
                 tools:srcCompat="@tools:sample/avatars" />
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -67,6 +68,7 @@
             android:id="@+id/box_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:background="@drawable/background_round_hard_green"
             android:orientation="horizontal"
             android:padding="8dp"
@@ -117,7 +119,7 @@
                 android:id="@+id/textView_student_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{student.age}"
+                android:text="@{``+student.age}"
                 tools:text="21" />
 
         </LinearLayout>
