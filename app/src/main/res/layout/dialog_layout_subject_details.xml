@@ -18,8 +18,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView_sub_det_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,20 +43,21 @@
             android:text="@{Subject.name}"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/cardView_sub_det_icon"
             app:layout_constraintStart_toStartOf="@+id/cardView_sub_det_icon"
             app:layout_constraintTop_toBottomOf="@+id/cardView_sub_det_icon"
-            tools:text="Laurie Thomas" />
+            tools:text="Social Science" />
 
         <TextView
             android:id="@+id/textView_sub_det_tb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:text="@string/text_taught_by"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/material_on_surface_emphasis_high_type"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/textView__sub_det_taught"
             app:layout_constraintStart_toStartOf="@+id/textView_sub_det_name"
             app:layout_constraintTop_toBottomOf="@+id/textView_sub_det_name" />
@@ -68,23 +69,22 @@
             android:text="@{Subject.teacher}"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/textView_sub_det_name"
             app:layout_constraintStart_toEndOf="@id/textView_sub_det_tb"
             app:layout_constraintTop_toBottomOf="@+id/textView_sub_det_name"
-            tools:text="lauriethomas@example.com" />
+            tools:text="Alexa Matteie" />
 
         <LinearLayout
             android:id="@+id/box_sub_det_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/background_round_hard_green"
             android:orientation="horizontal"
             android:padding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/box_sub_det_credits"
-            app:layout_constraintEnd_toEndOf="@+id/textView__sub_det_taught"
+            app:layout_constraintEnd_toStartOf="@id/box_sub_det_credits"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="@+id/textView_sub_det_tb"
             app:layout_constraintTop_toBottomOf="@+id/textView__sub_det_taught">
 
@@ -109,13 +109,13 @@
             android:id="@+id/box_sub_det_credits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:background="@drawable/background_round_hard_gray"
             android:orientation="horizontal"
             android:padding="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/box_sub_det_id"
-            app:layout_constraintStart_toStartOf="@+id/box_sub_det_id"
-            app:layout_constraintTop_toBottomOf="@+id/box_sub_det_id">
+            app:layout_constraintEnd_toEndOf="@+id/textView__sub_det_taught"
+            app:layout_constraintStart_toEndOf="@+id/box_sub_det_id"
+            app:layout_constraintTop_toBottomOf="@+id/textView__sub_det_taught">
 
             <TextView
                 android:layout_width="wrap_content"

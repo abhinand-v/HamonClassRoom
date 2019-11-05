@@ -15,12 +15,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp">
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             app:cardBackgroundColor="#00BCD4"
             app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +47,7 @@
             android:text="@{student.name}"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintStart_toStartOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
@@ -58,14 +60,14 @@
             android:text="@{student.email}"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/textView_studentName"
             app:layout_constraintStart_toStartOf="@+id/textView_studentName"
             app:layout_constraintTop_toBottomOf="@+id/textView_studentName"
             tools:text="lauriethomas@example.com" />
 
         <LinearLayout
-            android:id="@+id/box_id"
+            android:id="@+id/box_clsr_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -106,7 +108,7 @@
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/box_id">
+            app:layout_constraintTop_toBottomOf="@+id/box_clsr_sub">
 
             <TextView
                 android:id="@+id/text_age"
@@ -130,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/background_round_hard_gray"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="@+id/box_age"
             app:layout_constraintStart_toStartOf="@+id/box_age"

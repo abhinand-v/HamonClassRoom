@@ -14,4 +14,16 @@ class HomeRepository(
     suspend fun getSubjectList() = apiRequest {
         api.getSubjectList()
     }
+
+    suspend fun getSubjectDetails(id: Int) = apiRequest {
+        api.getSubjectDetails(id)
+    }
+
+    suspend fun getClassroomList() = apiRequest {
+        api.getClassroomtList()
+    }
+
+    suspend fun getClassroomDetails(id: Int) = apiRequest {
+        api.getClassroomsDetails(id)
+    }
 }

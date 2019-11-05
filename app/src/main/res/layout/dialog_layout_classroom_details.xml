@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="Classroom"
+            type="tech.codewithabhi.hamonclassroom.data.network.models.Classroom" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp">
+
+        <LinearLayout
+            android:id="@+id/box_clsr_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_round_hard_green"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView__sub_det_taught"
+            app:layout_constraintStart_toStartOf="@+id/textView_sub_det_tb"
+            app:layout_constraintTop_toBottomOf="@+id/textView__sub_det_taught">
+
+            <TextView
+                android:id="@+id/textView_studentId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:text="@{Classroom.subject}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp"
+                tools:text="Physics" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_refresh_black_24dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView_sub_det_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Classroom.name}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="SlateGray" />
+
+        <TextView
+            android:id="@+id/textView_sub_det_tb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/text_room_type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/material_on_surface_emphasis_high_type"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView__sub_det_taught"
+            app:layout_constraintStart_toStartOf="@+id/textView_sub_det_name"
+            app:layout_constraintTop_toBottomOf="@+id/textView_sub_det_name" />
+
+        <TextView
+            android:id="@+id/textView__sub_det_taught"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Classroom.layout}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView_sub_det_name"
+            app:layout_constraintStart_toEndOf="@id/textView_sub_det_tb"
+            app:layout_constraintTop_toBottomOf="@+id/textView_sub_det_name"
+            tools:text="conference" />
+
+        <Button
+            android:id="@+id/button_clsr_assign_sub"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/buttonText_assign_subject"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/box_clsr_sub"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@+id/box_clsr_sub"
+            app:layout_constraintTop_toBottomOf="@id/box_clsr_sub" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

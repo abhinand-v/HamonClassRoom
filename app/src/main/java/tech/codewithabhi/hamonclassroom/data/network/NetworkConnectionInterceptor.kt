@@ -21,8 +21,10 @@ class NetworkConnectionInterceptor(context: Context) : Interceptor {
         val connManager =
             applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
         connManager?.let { manager ->
-            if (manager.activeNetworkInfo != null && manager.activeNetworkInfo.isConnected) {
-                available = true
+            manager.activeNetworkInfo?.let { networkInfo ->
+                if (networkInfo.isConnected) {
+                    available = true
+                }
             }
         }
         return available

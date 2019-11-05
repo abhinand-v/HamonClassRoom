@@ -61,7 +61,8 @@ class StudentFragment : Fragment(), KodeinAware, StudentFragmentListener {
         }
 
         val mAdapter = GroupAdapter<ViewHolder>().apply {
-            addAll(studentListItems)
+            clear()
+            updateAsync(studentListItems)
             setOnItemClickListener { item, _ ->
                 showDetailDialog(students[this.getAdapterPosition(item)])
             }

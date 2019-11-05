@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="Student"
-            type="tech.codewithabhi.hamonclassroom.data.network.models.Student" />
+            name="Classroom"
+            type="tech.codewithabhi.hamonclassroom.data.network.models.Classroom" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -20,47 +20,46 @@
             android:layout_margin="16dp">
             <!-- user_name -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView_id"
+                android:id="@+id/cardView_clsr_icon"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView_user_image"
+                    android:id="@+id/imageView_clsr_icon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:LoadUserImages="@{``+Student.id}"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
-
+                    android:layout_gravity="center"
+                    tools:srcCompat="@drawable/ic_history" />
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/textView_clsr_name"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
                 android:gravity="top"
-                android:text="@{Student.name}"
+                android:text="@{Classroom.name}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintStart_toEndOf="@id/cardView_id"
+                app:layout_constraintStart_toEndOf="@id/cardView_clsr_icon"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Laurie Thomas" />
+                tools:text="SlateGray" />
 
             <TextView
-                android:id="@+id/user_email"
+                android:id="@+id/textView_clsr_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{Student.email}"
+                android:text="@{Classroom.layout}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintStart_toStartOf="@id/user_name"
-                app:layout_constraintTop_toBottomOf="@+id/user_name"
-                tools:text="timothyflores@example.com" />
+                app:layout_constraintStart_toStartOf="@id/textView_clsr_name"
+                app:layout_constraintTop_toBottomOf="@+id/textView_clsr_name"
+                tools:text="conference" />
 
             <ImageButton
-                android:id="@+id/imageButton"
                 style="@android:style/Widget.Material.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +72,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="bottom"
