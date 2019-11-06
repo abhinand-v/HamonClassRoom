@@ -1,5 +1,6 @@
 package tech.codewithabhi.hamonclassroom.ui.home.classroom
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -83,5 +84,18 @@ class ClassroomViewModel(
             }
         }
         return liveList
+    }
+
+    fun assignSubjectToClassroom(classroom: Classroom, subjectId: Int) {
+        CoroutineScope(Job() + Dispatchers.Main).launch {
+            try {
+                val response = repository.assignSubjectToClassroom(classroom.id, subjectId+1)
+                listener.startStopRefresh(false)
+            } catch (e: ApiExceptions) {
+                listener.startStopRefresh(false)
+            } catch (e: NetworkConnectionException) {
+                listener.startStopRefresh(false)
+            }
+        }
     }
 }

@@ -48,12 +48,13 @@ interface DataAPI {
         @Query("api_key") api_key: String = "d2baA"
     ): Response<Classroom>
 
+    @FormUrlEncoded
     @PATCH("classrooms/{id}?")
     suspend fun assignClassroomToSubject(
         @Path("id") ClassroomId: Int,
         @Field("subject") SubjectId: Int,
         @Query("api_key") api_key: String = "d2baA"
-    )
+    ): Response<Classroom>
 
     companion object {
         operator fun invoke(

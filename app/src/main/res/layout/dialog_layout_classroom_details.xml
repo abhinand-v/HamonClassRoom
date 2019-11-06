@@ -24,9 +24,9 @@
             android:background="@drawable/background_round_hard_green"
             android:orientation="horizontal"
             android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView__sub_det_taught"
-            app:layout_constraintStart_toStartOf="@+id/textView_sub_det_tb"
-            app:layout_constraintTop_toBottomOf="@+id/textView__sub_det_taught">
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <TextView
                 android:id="@+id/textView_studentId"
@@ -39,14 +39,26 @@
                 android:textSize="18sp"
                 tools:text="Physics" />
 
-            <ImageButton
-                android:id="@+id/imageButton2"
+            <Button
+                android:id="@+id/button_clsr_change_sub"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                app:srcCompat="@drawable/ic_refresh_black_24dp" />
+                android:text="@string/buttonText_assign_change"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Can occupy `+Classroom.size+` students`}"
+            app:layout_constraintEnd_toEndOf="@+id/textView__sub_det_taught"
+            app:layout_constraintStart_toStartOf="@+id/textView_sub_det_tb"
+            app:layout_constraintTop_toBottomOf="@+id/textView_sub_det_tb"
+            tools:text="Capacity: 22" />
 
         <TextView
             android:id="@+id/textView_sub_det_name"

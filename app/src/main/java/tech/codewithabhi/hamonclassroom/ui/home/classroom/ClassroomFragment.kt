@@ -85,30 +85,36 @@ class ClassroomFragment : Fragment(), KodeinAware, ClassroomFragmentListener {
             null, false
         )
 
-        viewModel.getClassroomDetails(classroom).observe(this, Observer {
 
-            viewBinding.classroom = it
+        viewModel.getClassroomDetails(classroom).observe(this, Observer { newClassroom ->
 
-            if (it.subject.isEmpty()) {
+            viewBinding.classroom = newClassroom
+
+            if (newClassroom.subject.isEmpty()) {
                 viewBinding.buttonClsrAssignSub.showView()
                 viewBinding.boxClsrSub.hideView()
             }
 
             val dialog = MaterialAlertDialogBuilder(appContext).apply {
                 setView(viewBinding.root)
-                setSingleChoiceItems(arrayOf("A","B","C"),1){dialogInterface, i ->
-
-                }
                 setNegativeButton("close") { dialogInterface, _ ->
                     dialogInterface.dismiss()
                 }
             }
 
-            dialog.show()
+            val cDialog = dialog.create()
+            cDialog.show()
 
             viewBinding.buttonClsrAssignSub.setOnClickListener {
-                dialogAssignSubject(classroom)
+                dialogAssignSubject(newClassroom)
+                cDialog.dismiss()
             }
+
+            viewBinding.buttonClsrChangeSub.setOnClickListener {
+                dialogAssignSubject(newClassroom)
+                cDialog.dismiss()
+            }
+
 
         })
 
@@ -116,16 +122,25 @@ class ClassroomFragment : Fragment(), KodeinAware, ClassroomFragmentListener {
 
     private fun dialogAssignSubject(classroom: Classroom) {
         viewModel.getSubjectRawList().observe(this, Observer { subjects ->
+
+            var checkedItem =
+                if (classroom.subject.isNotEmpty() && subjects.contains(classroom.subject))
+                    subjects.indexOf(classroom.subject)
+                else
+                    0
+
             val dialog = MaterialAlertDialogBuilder(appContext).apply {
                 setTitle("Select Subject")
-                setSingleChoiceItems(subjects.toTypedArray(),1) {dialogInterface, i ->
-                    appContext.showToast("Selected: $i")
+
+                setSingleChoiceItems(subjects.toTypedArray(), checkedItem) { _, i ->
+                    checkedItem = i
                 }
                 setPositiveButton("select") { dialogInterface, i ->
                     dialogInterface.dismiss()
-                    appContext.showToast("Selected: $i")
+                    viewModel.assignSubjectToClassroom(classroom, checkedItem)
+                    appContext.showToast("Assigned ${subjects[checkedItem]} to ${classroom.name}")
                 }
-                setNegativeButton("cancel"){dialogInterface, _ ->
+                setNegativeButton("cancel") { dialogInterface, _ ->
                     dialogInterface.dismiss()
                 }
             }

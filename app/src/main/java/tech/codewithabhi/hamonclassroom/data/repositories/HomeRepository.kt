@@ -26,4 +26,8 @@ class HomeRepository(
     suspend fun getClassroomDetails(id: Int) = apiRequest {
         api.getClassroomsDetails(id)
     }
+
+    suspend fun assignSubjectToClassroom(classroomId: Int, subjectId: Int) = apiRequest {
+        api.assignClassroomToSubject(classroomId, subjectId)
+    }
 }

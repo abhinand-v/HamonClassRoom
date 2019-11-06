@@ -40,6 +40,18 @@ fun loadSubjectIcons(imageView: ImageView, subject: String) {
     imageView.setImageDrawable(drawable)
 }
 
+@BindingAdapter("LoadRoomIcons")
+fun loadRoomIcons(imageView: ImageView, layout: String) {
+
+    val drawable = when (layout) {
+        "conference" -> imageView.context.getDrawable(R.drawable.ic_room_conf)
+        "classroom" -> imageView.context.getDrawable(R.drawable.ic_room_clsr)
+        else -> imageView.context.getDrawable(R.drawable.ic_room_clsr)
+    }
+
+    imageView.setImageDrawable(drawable)
+}
+
 @BindingAdapter("LoadUserImages")
 fun loadUserImages(imageView: ImageView, url: String) {
     GlideApp

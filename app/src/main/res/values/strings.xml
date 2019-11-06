@@ -9,6 +9,7 @@
     <string name="buttonText_signin">Sign In</string>
     <string name="buttonText_signup">Sign Up</string>
     <string name="buttonText_assign_subject">Assign Subject</string>
+    <string name="buttonText_assign_change">Change</string>
 
     #text
     <string name="text_id">ID:</string>
